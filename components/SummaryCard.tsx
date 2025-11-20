@@ -30,7 +30,7 @@ export default function SummaryCard({
       </div>
       <div
         className={`
-          text-xl min-[540px]:text-1xl md:text-2xl
+          text-xl min-[540px]:text-1xl md:text-2xl md:truncate
           text-gray-900 font-bold${valueSize === 'small' ? ' truncate' : ''}
         `}
       >
@@ -40,4 +40,3 @@ export default function SummaryCard({
     </div>
   )
 }
-
