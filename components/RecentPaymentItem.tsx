@@ -1,5 +1,5 @@
 import { PaymentListRes, MerchantListRes } from '@/lib/types'
-import { getMerchantName } from '@/utils/dateHelper'
+import { getMerchantName, formatDate } from '@/utils/dateHelper'
 
 const STATUS_COLORS: Record<string, string> = {
   SUCCESS: 'bg-[#425aeb]',
@@ -29,7 +29,7 @@ export default function RecentPaymentItem({
             {getMerchantName(payment.mchtCode, merchants)}
           </div>
           <div className="text-[10px] min-[390px]:text-xs text-gray-500">
-            {new Date(payment.paymentAt).toLocaleString('ko-KR', {
+            {formatDate(payment.paymentAt, {
               month: '2-digit',
               day: '2-digit',
               hour: '2-digit',

@@ -33,8 +33,18 @@ export default function MonthDatePicker({
   const [isOpen, setIsOpen] = useState(false)
   const [tempStart, setTempStart] = useState<string>(startMonth)
   const [tempEnd, setTempEnd] = useState<string>(endMonth)
-  const [startYear, setStartYear] = useState<number>(new Date().getFullYear())
-  const [endYear, setEndYear] = useState<number>(new Date().getFullYear())
+  const [startYear, setStartYear] = useState<number>(2024)
+  const [endYear, setEndYear] = useState<number>(2024)
+  const [currentMonth, setCurrentMonth] = useState<string>('')
+
+  useEffect(() => {
+    // 클라이언트에서만 실행하여 Hydration 에러 방지
+    const now = new Date()
+    const currentYear = now.getFullYear()
+    setStartYear(currentYear)
+    setEndYear(currentYear)
+    setCurrentMonth(getCurrentMonth())
+  }, [])
 
   useEffect(() => {
     setTempStart(startMonth)
@@ -260,8 +270,8 @@ export default function MonthDatePicker({
     </div>
   )
 
-  const currentMonth = getCurrentMonth()
-  const hasDateFilter = startMonth !== currentMonth || endMonth !== currentMonth
+  const hasDateFilter =
+    currentMonth && (startMonth !== currentMonth || endMonth !== currentMonth)
 
   if (!isOpen) {
     if (variant === 'icon-only') {

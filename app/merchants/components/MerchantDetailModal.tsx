@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { MerchantDetailRes } from '@/lib/types'
 import { getMerchantDetailByCode } from '@/lib/api'
 import { getStatusLabel } from '../utils/merchantHelper'
+import { formatDateKorean } from '@/utils/dateHelper'
 
 type MerchantDetailModalProps = {
   isOpen: boolean
@@ -128,7 +129,7 @@ export default function MerchantDetailModal({
                   등록일시
                 </span>
                 <span className="text-sm min-[390px]:text-base text-gray-600 text-right">
-                  {new Date(merchant.registeredAt).toLocaleString('ko-KR')}
+                  {formatDateKorean(merchant.registeredAt)}
                 </span>
               </div>
               <div className="flex items-center justify-between py-4">
@@ -136,7 +137,7 @@ export default function MerchantDetailModal({
                   수정일시
                 </span>
                 <span className="text-sm min-[390px]:text-base text-gray-600 text-right">
-                  {new Date(merchant.updatedAt).toLocaleString('ko-KR')}
+                  {formatDateKorean(merchant.updatedAt)}
                 </span>
               </div>
             </div>

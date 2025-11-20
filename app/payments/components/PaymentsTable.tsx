@@ -4,7 +4,7 @@ import { PaymentListRes, MerchantListRes } from '@/lib/types'
 import { useContext } from 'react'
 import { PaymentFilterContext } from '@/store/payment-filter'
 import { getFilteredPayments } from '../utils/paymentHelper'
-import { getMerchantName } from '@/utils/dateHelper'
+import { getMerchantName, formatDate } from '@/utils/dateHelper'
 
 export default function PaymentsTable({
   payments = [],
@@ -113,7 +113,7 @@ export default function PaymentsTable({
                 </span>
               </div>
               <span className="whitespace-nowrap">
-                {new Date(payment.paymentAt).toLocaleString('ko-KR', {
+                {formatDate(payment.paymentAt, {
                   month: '2-digit',
                   day: '2-digit',
                   hour: '2-digit',
