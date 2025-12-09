@@ -9,6 +9,7 @@ import MerchantStatusStats from './MerchantStatusStats'
 import MerchantSort from './sort/MerchantSort'
 import MerchantDetailModal from './MerchantDetailModal'
 import { getFilteredMerchants } from '../utils/merchantHelper'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function Merchants({
   merchants,
@@ -50,6 +51,7 @@ export default function Merchants({
         merchants={filteredMerchants}
         onMerchantClick={handleMerchantClick}
       />
+      <ScrollToTop />
       <MerchantDetailModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}

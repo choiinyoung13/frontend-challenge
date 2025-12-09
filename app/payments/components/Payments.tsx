@@ -8,6 +8,7 @@ import PaymentsTable from './PaymentsTable'
 import PaymentSort from './sort/PaymentSort'
 import PaymentSummaryCards from './PaymentSummaryCards'
 import PaymentTypeStats from './PaymentTypeStats'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function Payments({
   payments,
@@ -29,6 +30,7 @@ export default function Payments({
 
   return (
     <>
+      <ScrollToTop />
       <PaymentSort />
       <PaymentTypeStats payments={payments} merchants={merchants} />
       <PaymentSummaryCards payments={payments} merchants={merchants} />
